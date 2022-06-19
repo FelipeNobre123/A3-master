@@ -9,16 +9,32 @@ const app = express();
 
 const port = process.nextTick.PORT || 3000;
 
+
+
+
 // modelo - usuario
 const User = require("./models/User");
 
 // Config JSON 
 app.use(express.json());
 
-// rota aberta
-app.get("/", (req, res) => {
-  res.status(200).json({ msg: "Bem vindo A ACADEMIA A3" });
-});
+
+
+
+
+
+//..............................................................
+// rota aberta/ inicio do site
+app.get('/', (req, res) => {
+  //res.status(200).json({ msg: "Bem vindo A ACADEMIA A3" });
+  res.sendFile(__dirname + '/index.html');
+})
+//..............................................................
+
+
+
+
+
 
 // rotas privadas
 app.get("/user/:id", checkToken, async (req, res) => {
@@ -103,11 +119,7 @@ app.post("/auth/register", async (req, res) => {
     password: passwordHash,
   });
 
- // let db = [
- //   { '1': { nome: 'cliente 1', email: 'cliente1@gmail.com',}},
- //   { '2': { nome: 'cliente 2', email: 'cliente2@gmail.com',}},
-  //  { '3': { nome: 'adm',       email: 'adm@gmail.com',}},   
-//  ]
+
 
   try {
     await user.save();
