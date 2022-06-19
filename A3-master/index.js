@@ -3,6 +3,8 @@ const app = express();
 const hbs = require('express-handlebars');
 const PORT = process.env.PORT || 3000;
 
+
+
 //CONFIGURAÇÃO DO HANDLEBARS
 app.engine('hbs',hbs.engine({
     extname: 'hbs',
@@ -47,11 +49,18 @@ pp.get('/cadastrar/login/cliente/cadadm/adm',(req,res)=>{
 */
 
 
+//app.listen(PORT2,()=>{
+  //  console.log('Servidor rodando em http://localhost:'+PORT2);
+//})
 
+//app.listen(PORT,()=>{
+ //   console.log('Servidor rodando em http://localhost:'+PORT);
+//})
 
 app.listen(PORT,()=>{
-    console.log('Servidor rodando em http://localhost:'+PORT);
+    console.info('Servidor rodando em http://localhost:'+PORT);
 })
+
 
 
 
